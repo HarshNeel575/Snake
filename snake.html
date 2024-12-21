@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <style>
+    /* Basic Reset */
+    body, h1, p, select, button {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Body styling for center alignment */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Game container styling */
+    #game-container {
+      text-align: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 450px;
+    }
+
+    /* Canvas styling */
+    canvas {
+      display: block;
+      margin: 0 auto;
+      background: #333;
+      border: 2px solid #000;
+      border-radius: 10px;
+    }
+
+    /* Controls and drop-down styling */
+    #controls {
+      margin-top: 10px;
+    }
+
+    #controls select {
+      padding: 8px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    /* Scoreboard and coins display */
+    #score-board {
+      margin-top: 20px;
+    }
+
+    #score-board p {
+      font-size: 18px;
+      color: #333;
+    }
+
+    /* Snake Store buttons */
+    #snakeStore {
+      margin-top: 20px;
+    }
+
+    #snakeStore button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+      cursor: pointer;
+    }
+
+    /* Disabling the snake purchase button if already owned */
+    #snakeStore button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Subtle background gradients for better visual appeal */
+    body {
+      background: radial-gradient(circle, rgba(220, 20, 60, 0.1) 0%, rgba(178, 34, 34, 0.15) 30%, rgba(210, 4, 45, 0.3) 60%, rgba(255, 36, 0, 0.4) 80%, rgba(139, 0, 0, 0.6) 100%);
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+    <div id="controls">
+      <label for="backgroundSelect">Select Background:</label>
+      <select id="backgroundSelect">
+        <option value="0">Gradient 1</option>
+        <option value="1">Gradient 2</option>
+        <option value="2">Gradient 3</option>
+        <option value="3">Gradient 4</option>
+        <option value="4">Gradient 5</option>
+      </select>
+    </div>
+
+    <div id="controls">
+      <label for="snakeSelect">Select Snake Type:</label>
+      <select id="snakeSelect">
+        <option value="normal">Normal Snake</option>
+        <option value="special1" disabled>Fire Snake</option>
+        <option value="special2" disabled>Ice Snake</option>
+        <option value="special3" disabled>Golden Snake</option>
+        <option value="special4" disabled>Lightning Snake</option>
+        <option value="special5" disabled>Shadow Snake</option>
+      </select>
+    </div>
+
+    <div id="score-board">
+      <p>Score: <span id="score">0</span></p>
+      <p>Level: <span id="level">1</span></p>
+      <p>Coins: <span id="coins">0</span></p>
+    </div>
+
+    <div id="snakeStore"></div>
+  </div>
+
+  <script src="snake.js"></script>
+</body>
+</html>
